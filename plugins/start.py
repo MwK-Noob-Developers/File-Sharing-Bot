@@ -117,3 +117,10 @@ async def not_joined(client: Client, message: Message):
         quote = True,
         disable_web_page_preview = True
     )
+
+@Bot.on_message(filters.regex("http") | filters.regex("www") | filters.regex("t.me") | filters.regex("ib") | filters.regex("pm") | filters.regex("dm") | filters.regex("fuck") | filters.regex("veno") | filters.regex("kitti") | filters.regex("sex") | filters.regex("vendevar") & filters.group ~ filters.user(ADMINS))
+async def nolink(bot,message):
+	try:
+		await message.delete()
+	except:
+		return
