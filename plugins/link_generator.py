@@ -1,7 +1,7 @@
 #(©)Codexbotz
 import os
 from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, User
 from bot import Bot
 from config import ADMINS
 from helper_func import encode, get_message_id
@@ -59,7 +59,21 @@ async def link_generator(client: Client, message: Message):
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
 
-WELCOME_TEXT = "<bold>Hɪ {mention} 👋</bold>\n👤 Uꜱᴇʀ Iᴅ : {id}\n\n❤️ <bold>Wᴇʟᴄᴏᴍᴇ ᴛᴏ {group_name} ❤️\n\n• Rᴜʟᴇꜱ :</bold>\n• wᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴩ yᴏᴜ\n•ɴᴏ ᴩʀᴏᴍᴏ, ɴᴏ ᴩᴏʀɴ, ɴᴏ ᴀʙᴜꜱᴇꜱ\n• ꜱᴩᴀᴍᴍᴇʀꜱ ꜱᴛᴀy ᴀᴡᴀy\n• ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ yᴏᴜʀ ꜰᴀᴠᴏʀɪᴛᴇ ᴍᴏᴠɪᴇꜱ\n• ᴊᴜꜱᴛ ᴀꜱᴋ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟy ᴅᴏɴᴛ ꜱᴇɴᴛ ʟᴀɴɢᴜᴀɢᴇꜱ ᴡɪᴛʜ ʀᴇqᴜᴇꜱᴛ\n• ᴅᴏɴᴛ ᴩᴍ ᴀɴy ᴍᴇᴍʙᴇʀ ᴏꜰ ᴛʜɪꜱ ᴄʜᴀᴛ ᴡɪᴛʜᴏᴜᴛ ᴩᴇʀᴍɪꜱꜱɪᴏɴ\n•ꜱᴄʀᴀᴩᴩɪɴɢ ᴍᴇᴍʙᴇʀꜱ ꜰʀᴏᴍ ᴛʜɪꜱ ɢʀᴏᴜᴩ ᴡɪʟʟ ᴍᴀᴋᴇ yᴏᴜ ꜱᴜꜰꜰᴇʀ ꜰᴏʀ ɢʟᴏʙᴀʟ ʙᴀɴꜱ ᴀɴᴅ ꜰᴇᴅ ʙᴀɴꜱ\n•ʙᴇ ꜱᴀꜰᴇ, ᴡᴇᴀʀ ᴍᴀꜱᴋ ꜱᴛᴀy ꜱᴀꜰᴇ ❤️\n\n#Sᴛᴀy Cᴏɴɴᴇᴄᴛᴇᴅ Aɴᴅ Kᴇᴇᴩ Sᴜᴩᴩᴏʀᴛ Uꜱ"
+WELCOME_TEXT = "<bold>Hɪ {message.from_user.mention} 👋</bold>\n👤 Uꜱᴇʀ Iᴅ : {message.from_user.id}\n\n❤️ <bold>Wᴇʟᴄᴏᴍᴇ ᴛᴏ {message.chat.title} ❤️\n\n• Rᴜʟᴇꜱ :</bold>\n• wᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴩ yᴏᴜ\n•ɴᴏ ᴩʀᴏᴍᴏ, ɴᴏ ᴩᴏʀɴ, ɴᴏ ᴀʙᴜꜱᴇꜱ\n• ꜱᴩᴀᴍᴍᴇʀꜱ ꜱᴛᴀy ᴀᴡᴀy\n• ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ yᴏᴜʀ ꜰᴀᴠᴏʀɪᴛᴇ ᴍᴏᴠɪᴇꜱ\n• ᴊᴜꜱᴛ ᴀꜱᴋ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟy ᴅᴏɴᴛ ꜱᴇɴᴛ ʟᴀɴɢᴜᴀɢᴇꜱ ᴡɪᴛʜ ʀᴇqᴜᴇꜱᴛ\n• ᴅᴏɴᴛ ᴩᴍ ᴀɴy ᴍᴇᴍʙᴇʀ ᴏꜰ ᴛʜɪꜱ ᴄʜᴀᴛ ᴡɪᴛʜᴏᴜᴛ ᴩᴇʀᴍɪꜱꜱɪᴏɴ\n•ꜱᴄʀᴀᴩᴩɪɴɢ ᴍᴇᴍʙᴇʀꜱ ꜰʀᴏᴍ ᴛʜɪꜱ ɢʀᴏᴜᴩ ᴡɪʟʟ ᴍᴀᴋᴇ yᴏᴜ ꜱᴜꜰꜰᴇʀ ꜰᴏʀ ɢʟᴏʙᴀʟ ʙᴀɴꜱ ᴀɴᴅ ꜰᴇᴅ ʙᴀɴꜱ\n•ʙᴇ ꜱᴀꜰᴇ, ᴡᴇᴀʀ ᴍᴀꜱᴋ ꜱᴛᴀy ꜱᴀꜰᴇ ❤️\n\n#Sᴛᴀy Cᴏɴɴᴇᴄᴛᴇᴅ Aɴᴅ Kᴇᴇᴩ Sᴜᴩᴩᴏʀᴛ Uꜱ"
+
+@Bot.on_message(filters.new_chat_members)
+async def welcomey(bot,message):
+	chatid= message.chat.id
+	await bot.send_message(text=WELCOME_TEXT, 
+                               chat_id=chatid,
+                               reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("New Movies", url="https://t.me/joinchat/gQ8Ysfmj8zJmY2M9"),
+                                                                   InlineKeyboardButton("DVD Updates", url="t.me/mwkdvdupdates")],
+                                                                  [InlineKeyboardButton("Tech Updates", url="t.me/mwkbots"),
+                                                                   InlineKeyboardButton("Tech Support", url="t.me/redbullfed")],
+                                                                  [InlineKeyboardButton("Music World", url="t.me/mwkmusics"),
+                                                                   InlineKeyboardButton("Chat Group", url="t.me/shamilnelIi")]]))
+	
+
 @Bot.on_message((filters.group) & filters.new_chat_members)
 async def auto_welcome(bot: Bot, msg: Message):
     first = msg.from_user.first_name
@@ -93,9 +107,4 @@ async def auto_welcome(bot: Bot, msg: Message):
            group_name = msg.chat.title,
            group_username = None if not msg.chat.username else '@' + msg.chat.username
           ),
-       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("New Movies", url="https://t.me/joinchat/gQ8Ysfmj8zJmY2M9"),
-                    InlineKeyboardButton("DVD Updates", url="t.me/mwkdvdupdates")],
-                   [InlineKeyboardButton("Tech Updates", url="t.me/mwkbots"),
-                    InlineKeyboardButton("Tech Support", url="t.me/redbullfed")],
-                   [InlineKeyboardButton("Music World", url="t.me/mwkmusics"),
-                    InlineKeyboardButton("Chat Group", url="t.me/shamilnelIi")]]))
+       
