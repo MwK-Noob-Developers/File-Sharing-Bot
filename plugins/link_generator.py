@@ -66,7 +66,7 @@ async def welcomey(bot,message):
 	chatid= message.chat.id
 	await bot.send_message(text=WELCOME_TEXT, 
                                chat_id=chatid,
-                               parse_mod=html
+                               parse_mod=html,
                                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("New Movies", url="https://t.me/joinchat/gQ8Ysfmj8zJmY2M9"),
                                                                    InlineKeyboardButton("DVD Updates", url="t.me/mwkdvdupdates")],
                                                                   [InlineKeyboardButton("Tech Updates", url="t.me/mwkbots"),
