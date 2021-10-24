@@ -1,5 +1,5 @@
 #(©)Codexbotz
-
+import os
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from bot import Bot
@@ -58,3 +58,44 @@ async def link_generator(client: Client, message: Message):
     link = f"https://t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     await channel_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
+
+WELCOME_TEXT = "<bold>Hɪ {mention} 👋</bold>\n👤 Uꜱᴇʀ Iᴅ : {id}\n\n❤️ <bold>Wᴇʟᴄᴏᴍᴇ ᴛᴏ {group_name} ❤️\n\n• Rᴜʟᴇꜱ :</bold>\n• wᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴩ yᴏᴜ\n•ɴᴏ ᴩʀᴏᴍᴏ, ɴᴏ ᴩᴏʀɴ, ɴᴏ ᴀʙᴜꜱᴇꜱ\n• ꜱᴩᴀᴍᴍᴇʀꜱ ꜱᴛᴀy ᴀᴡᴀy\n• ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ yᴏᴜʀ ꜰᴀᴠᴏʀɪᴛᴇ ᴍᴏᴠɪᴇꜱ\n• ᴊᴜꜱᴛ ᴀꜱᴋ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟy ᴅᴏɴᴛ ꜱᴇɴᴛ ʟᴀɴɢᴜᴀɢᴇꜱ ᴡɪᴛʜ ʀᴇqᴜᴇꜱᴛ\n• ᴅᴏɴᴛ ᴩᴍ ᴀɴy ᴍᴇᴍʙᴇʀ ᴏꜰ ᴛʜɪꜱ ᴄʜᴀᴛ ᴡɪᴛʜᴏᴜᴛ ᴩᴇʀᴍɪꜱꜱɪᴏɴ\n•ꜱᴄʀᴀᴩᴩɪɴɢ ᴍᴇᴍʙᴇʀꜱ ꜰʀᴏᴍ ᴛʜɪꜱ ɢʀᴏᴜᴩ ᴡɪʟʟ ᴍᴀᴋᴇ yᴏᴜ ꜱᴜꜰꜰᴇʀ ꜰᴏʀ ɢʟᴏʙᴀʟ ʙᴀɴꜱ ᴀɴᴅ ꜰᴇᴅ ʙᴀɴꜱ\n•ʙᴇ ꜱᴀꜰᴇ, ᴡᴇᴀʀ ᴍᴀꜱᴋ ꜱᴛᴀy ꜱᴀꜰᴇ ❤️\n\n#Sᴛᴀy Cᴏɴɴᴇᴄᴛᴇᴅ Aɴᴅ Kᴇᴇᴩ Sᴜᴩᴩᴏʀᴛ Uꜱ"
+@Bot.on_message((filters.group) & filters.new_chat_members))
+async def auto_welcome(bot: Bot, msg: Message):
+    first = msg.from_user.first_name
+    last = msg.from_user.last_name
+    mention = msg.from_user.mention
+    username = msg.from_user.username
+    id = msg.from_user.id
+    group_name = msg.chat.title
+    group_username = msg.chat.username
+    welcome_text = f"Hey {mention}\nWelcome To {group_name}"
+    print("Welcome Message Activate")
+    BUTTON = bool(os.environ.get("WELCOME_BUTTON"))
+    if not BUTTON:
+       await msg.reply_text(text=WELCOME_TEXT.format(
+           first = msg.from_user.first_name,
+           last = msg.from_user.last_name,
+           username = None if not msg.from_user.username else '@' + msg.from_user.username,
+           mention = msg.from_user.mention,
+           id = msg.from_user.id,
+           group_name = msg.chat.title,
+           group_username = None if not msg.chat.username else '@' + msg.chat.username
+          )
+       )
+    else:
+       await msg.reply_text(text=WELCOME_TEXT.format(
+           first = msg.from_user.first_name,
+           last = msg.from_user.last_name,
+           username = None if not msg.from_user.username else '@' + msg.from_user.username,
+           mention = msg.from_user.mention,
+           id = msg.from_user.id,
+           group_name = msg.chat.title,
+           group_username = None if not msg.chat.username else '@' + msg.chat.username
+          ),
+       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("New Movies", url="https://t.me/joinchat/gQ8Ysfmj8zJmY2M9"),
+                    InlineKeyboardButton("DVD Updates", url="t.me/mwkdvdupdates")],
+                   [InlineKeyboardButton("Tech Updates", url="t.me/mwkbots"),
+                    InlineKeyboardButton("Tech Support", url="t.me/redbullfed")],
+                   [InlineKeyboardButton("Music World", url="t.me/mwkmusics"),
+                    InlineKeyboardButton("Chat Group", url="t.me/shamilnelIi")]]))
