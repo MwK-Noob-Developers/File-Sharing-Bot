@@ -73,6 +73,6 @@ async def welcomey(bot, message):
                                         [InlineKeyboardButton("Music World", url="t.me/mwkmusics"),
                                          InlineKeyboardButton("Chat Group", url="t.me/shamilnelIi")],
                                         ])
-       )
-       await asyncio.sleep(35)
-       await AutoDelete.delete()
+      )
+      await asyncio.sleep(35)
+      await AutoDelete.delete()
