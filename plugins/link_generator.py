@@ -62,9 +62,10 @@ async def link_generator(client: Client, message: Message):
 
 @Bot.on_message(filters.new_chat_members)
 async def welcomey(bot, message):
-      chat_id=message.chat.id,
       AutoDelete = await bot.send_message(
-      text=f"<b>Hɪ {message.from_user.mention} 👋</b>\n👤 Uꜱᴇʀ Iᴅ : {message.from_user.id}\n\n❤️ <b>Wᴇʟᴄᴏᴍᴇ ᴛᴏ {message.chat.title} ❤️\n\n• Rᴜʟᴇꜱ :</b>\n• wᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴩ yᴏᴜ\n•ɴᴏ ᴩʀᴏᴍᴏ, ɴᴏ ᴩᴏʀɴ, ɴᴏ ᴀʙᴜꜱᴇꜱ\n• ꜱᴩᴀᴍᴍᴇʀꜱ ꜱᴛᴀy ᴀᴡᴀy\n• ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ yᴏᴜʀ ꜰᴀᴠᴏʀɪᴛᴇ ᴍᴏᴠɪᴇꜱ\n• ᴊᴜꜱᴛ ᴀꜱᴋ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟy ᴅᴏɴᴛ ꜱᴇɴᴛ ʟᴀɴɢᴜᴀɢᴇꜱ ᴡɪᴛʜ ʀᴇqᴜᴇꜱᴛ\n• ᴅᴏɴᴛ ᴩᴍ ᴀɴy ᴍᴇᴍʙᴇʀ ᴏꜰ ᴛʜɪꜱ ᴄʜᴀᴛ ᴡɪᴛʜᴏᴜᴛ ᴩᴇʀᴍɪꜱꜱɪᴏɴ\n•ꜱᴄʀᴀᴩᴩɪɴɢ ᴍᴇᴍʙᴇʀꜱ ꜰʀᴏᴍ ᴛʜɪꜱ ɢʀᴏᴜᴩ ᴡɪʟʟ ᴍᴀᴋᴇ yᴏᴜ ꜱᴜꜰꜰᴇʀ ꜰᴏʀ ɢʟᴏʙᴀʟ ʙᴀɴꜱ ᴀɴᴅ ꜰᴇᴅ ʙᴀɴꜱ\n•ʙᴇ ꜱᴀꜰᴇ, ᴡᴇᴀʀ ᴍᴀꜱᴋ ꜱᴛᴀy ꜱᴀꜰᴇ ❤️\n\n<b>#Sᴛᴀy Cᴏɴɴᴇᴄᴛᴇᴅ Aɴᴅ Kᴇᴇᴩ Sᴜᴩᴩᴏʀᴛ Uꜱ</b>", 
+      chat_id=message.chat.id,
+      text=f"<b>Hɪ {message.from_user.mention} 👋</b>\n👤 Uꜱᴇʀ Iᴅ : {message.from_user.id}\n\n❤️ <b>Wᴇʟᴄᴏᴍᴇ ᴛᴏ {message.chat.title} ❤️\n\n• Rᴜʟᴇꜱ :</b>\n• wᴇ ᴀʀᴇ ʜᴇʀᴇ ᴛᴏ ʜᴇʟᴩ yᴏᴜ\n•ɴᴏ ᴩʀᴏᴍᴏ, ɴᴏ ᴩᴏʀɴ, ɴᴏ ᴀʙᴜꜱᴇꜱ\n• ꜱᴩᴀᴍᴍᴇʀꜱ ꜱᴛᴀy ᴀᴡᴀy\n• ꜰᴇᴇʟ ꜰʀᴇᴇ ᴛᴏ ᴀꜱᴋ yᴏᴜʀ ꜰᴀᴠᴏʀɪᴛᴇ ᴍᴏᴠɪᴇꜱ\n• ᴊᴜꜱᴛ ᴀꜱᴋ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟy ᴅᴏɴᴛ ꜱᴇɴᴛ ʟᴀɴɢᴜᴀɢᴇꜱ ᴡɪᴛʜ ʀᴇqᴜᴇꜱᴛ\n• ᴅᴏɴᴛ ᴩᴍ ᴀɴy ᴍᴇᴍʙᴇʀ ᴏꜰ ᴛʜɪꜱ ᴄʜᴀᴛ ᴡɪᴛʜᴏᴜᴛ ᴩᴇʀᴍɪꜱꜱɪᴏɴ\n•ꜱᴄʀᴀᴩᴩɪɴɢ ᴍᴇᴍʙᴇʀꜱ ꜰʀᴏᴍ ᴛʜɪꜱ ɢʀᴏᴜᴩ ᴡɪʟʟ ᴍᴀᴋᴇ yᴏᴜ ꜱᴜꜰꜰᴇʀ ꜰᴏʀ ɢʟᴏʙᴀʟ ʙᴀɴꜱ ᴀɴᴅ ꜰᴇᴅ ʙᴀɴꜱ\n•ʙᴇ ꜱᴀꜰᴇ, ᴡᴇᴀʀ ᴍᴀꜱᴋ ꜱᴛᴀy ꜱᴀꜰᴇ ❤️\n\n<b>#Sᴛᴀy Cᴏɴɴᴇᴄᴛᴇᴅ Aɴᴅ Kᴇᴇᴩ Sᴜᴩᴩᴏʀᴛ Uꜱ</b>",
+      reply_to_message_id=message.message_id,
       reply_markup=InlineKeyboardMarkup([
                                         [InlineKeyboardButton("New Movies", url="https://t.me/joinchat/gQ8Ysfmj8zJmY2M9"),
                                          InlineKeyboardButton("DVD Updates", url="t.me/mwkdvdupdates")],
