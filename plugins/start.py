@@ -111,7 +111,7 @@ async def not_joined(client: Client, message: Message):
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url = client.invitelink)]])
     await message.reply(
-        text = text
+        text = text,
         reply_markup = reply_markup,
         quote = True,
         disable_web_page_preview = True
