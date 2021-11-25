@@ -95,7 +95,6 @@ async def start_command(client: Client, message: Message):
                 mention = message.from_user.mention,
                 id = message.from_user.id
             ),
-            reply_markup = reply_markup,
             disable_web_page_preview = True,
             quote = True
         )
@@ -103,16 +102,16 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = "<b>Join My Updates Channel to use me & Enjoy the Free Service\n\n© Powered by [ __@redbullfed__ ]</b>"
+    text = "<b>Join My Updates Channel to use me & Enjoy the Free Service\n\n© Powered by [ @mwkbots ]</b>"
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f" <b>and <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
+        text = text + f"<b>and <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url = client.invitelink)]])
     await message.reply(
-        text = text,
+        text = text
         reply_markup = reply_markup,
         quote = True,
         disable_web_page_preview = True
