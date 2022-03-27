@@ -73,16 +73,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🤖 About Me 🤖", callback_data = "help")
-                 ],[
-                    InlineKeyboardButton('📢 Updates', url='https://t.me/mwklinks'),
-                InlineKeyboardButton('💬 Support', url='https://t.me/redbullfed')
-                ],[
-                InlineKeyboardButton('🎟 Movies', url='https://t.me/movieworldkdy'),
-                InlineKeyboardButton('🎧 Songs', url='https://t.me/mwksongs')
-                ],[
-                InlineKeyboardButton('👤 Developer', url='https://t.me/shamilnelli'),
-                InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("Movies", url='https://t.me/cine_vood'),
+                    InlineKeyboardButton('About', callback_data = "help")
                 ]
             ]
         )
@@ -106,10 +98,10 @@ async def not_joined(client: Client, message: Message):
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f"<b>and <a href='https://t.me/{client.username}?start={argument}'>try again</a></b>"
+        text = text + f"<b>and <a href='https://t.me/cinevood_v2bot?start={argument}'>try again</a></b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url = client.invitelink)]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Main Channel", url='https://t.me/cine_vood')]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
