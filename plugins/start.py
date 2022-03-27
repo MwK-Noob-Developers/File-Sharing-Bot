@@ -94,7 +94,7 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = "<b>‼️ You Must Join Channel To Get Files. ‼️\n\nChannel : <i>@Cine_Vood</i>\n\nWatch Tutorial :</b> <i>https://t.me/TNValue/10</i>"
+    text = f"<b>‼️ You Must Join Channel To Get Files. ‼️\n\nChannel : <i>@Cine_Vood</i>\n\nWatch Tutorial :</b> <i>https://t.me/TNValue/10</i>\n\n<b>and <a href='https://t.me/cinevood_v2bot?start={argument}'>try again</a></b>"
     message_text = message.text
     try:
         command, argument = message_text.split()
