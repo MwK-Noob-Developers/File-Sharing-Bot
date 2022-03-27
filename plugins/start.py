@@ -94,11 +94,11 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = f"<b>‼️ You Must Join Channel To Get Files. ‼️\n\nChannel : <i>@Cine_Vood</i>\n\nWatch Tutorial :</b> <i>https://t.me/TNValue/10</i>"
+    text = f"<b>‼️ You Must Join Channel To Get Files. ‼️\n\nChannel : <i>@Cine_Vood</i>\n\nWatch Tutorial :</b> <i>https://t.me/TNValue/10</i>\n\n"
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f"/n/n<i>Click the Below button and</i> <b><a href='https://t.me/cinevood_v2bot?start={argument}'>Press Me</a></b>"
+        text = text + f"<i>Click the Below button and</i> <b><a href='https://t.me/cinevood_v2bot?start={argument}'>Press Me</a></b>"
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Main Channel", url='https://t.me/cine_vood')]])
