@@ -98,6 +98,7 @@ async def not_joined(client: Client, message: Message):
     message_text = message.text
     try:
         command, argument = message_text.split()
+    text = text + f"<b>Join the Below Channel and <a href='https://t.me/cinevood_v2bot?start={argument}'>Try Again</a></b>"
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Channel", url='https://t.me/cine_vood')],
