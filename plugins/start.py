@@ -94,14 +94,14 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = "<b>Join My Updates Channel to use me & Enjoy the Free Service\n\n© Powered by [ @mwkbots ]</b>"
+    text = "<b>‼️ You Must Join Channel To Get Files. ‼️\n\nChannel : <i>@Cine_Vood</i>\n\nWatch Tutorial :</b> <i>https://t.me/TNValue/10</i>"
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f"<b>and <a href='https://t.me/cinevood_v2bot?start={argument}'>try again</a></b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Main Channel", url='https://t.me/cine_vood')]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Channel", url='https://t.me/cine_vood')],
+                                          [InlineKeyboardButton("Refresh", url="https://t.me/cinevood_v2bot?start={argument}")]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
