@@ -98,12 +98,12 @@ async def not_joined(client: Client, message: Message):
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text1 = text + f"<b>and <a href='https://t.me/cinevood_v2bot?start={argument}'>try again</a></b>"
+        text = text + f"<b>and <a href='https://t.me/cinevood_v2bot?start={argument}'>try again</a></b>"
     except ValueError:
         pass
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("Join Main Channel", url='https://t.me/cine_vood')]])
     await message.reply(
-        text = text1,
+        text = text,
         reply_markup = reply_markup,
         quote = True,
         disable_web_page_preview = True
